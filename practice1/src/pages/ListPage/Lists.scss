@@ -1,0 +1,26 @@
+.lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    flex-direction: column;
+    max-width: 350px;
+    margin: auto;
+    margin-top: 30px;
+    div.list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+        button {
+            height: 30px;
+            padding: 0 15px;
+        }
+    }
+    button.return {
+        height: 30px;
+        padding: 0 15px;
+        margin-top: 50px;
+    }
+}
