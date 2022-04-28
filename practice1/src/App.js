@@ -10,8 +10,6 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                </Routes>
-                <Routes>
                     <Route path="/listpage" element={<AddForm />} />
                 </Routes>
             </BrowserRouter>
