@@ -1,0 +1,98 @@
+/*!*******************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/App.scss ***!
+  \*******************************************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/pages/homePage/Home.scss ***!
+  \***********************************************************************************************************************/
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.home div.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100vw;
+  background-color: #222546;
+  font-size: 30px;
+  color: white;
+}
+.home div.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100vw;
+  background-color: #6894a2;
+  font-size: 30px;
+}
+.home button {
+  font-size: 30px;
+  margin-top: 50px;
+  padding: 5px 10px;
+}
+/*!**************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/pages/ListPage/AddForm.scss ***!
+  \**************************************************************************************************************************/
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  font-size: 20px;
+  max-width: 350px;
+  margin: auto;
+}
+.add input {
+  height: 30px;
+  width: 250px;
+  margin-right: 10px;
+  padding: 0 10px;
+}
+.add input:focus {
+  outline: none;
+}
+.add button {
+  height: 30px;
+  padding: 0 15px;
+}
+/*!************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/pages/ListPage/Lists.scss ***!
+  \************************************************************************************************************************/
+.lists {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  flex-direction: column;
+  max-width: 350px;
+  margin: auto;
+  margin-top: 30px;
+}
+.lists div.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.lists div.list button {
+  height: 30px;
+  padding: 0 15px;
+}
+.lists button.return {
+  height: 30px;
+  padding: 0 15px;
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=main.3af00eb6a99d7458da0d.css.map*/
