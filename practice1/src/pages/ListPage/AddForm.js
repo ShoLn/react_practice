@@ -2,19 +2,61 @@ import React from "react";
 import "./AddForm.scss";
 import { useState } from "react";
 import Lists from "./Lists";
-import { v4 as uuidv4 } from "uuid";
+import { p1Firestore } from "../../firebase/config";
+import { useEffect } from "react";
 
 export default function AddForm() {
     const [allList, setAllList] = useState([]);
     const [inputValue, setInputValue] = useState("");
+    const [firebaseUpdate, setFirebaseUpdate] = useState(false);
 
-    const deleteLists = (deleteId) => {
-        setAllList((prevAllLists) => {
-            return prevAllLists.filter((a) => {
-                return a.id !== deleteId;
-            });
-        });
+    // handle delete button
+    const deleteLists = async (deleteId) => {
+        try {
+            await p1Firestore
+                .collection("to_do_lists")
+                .doc(`${deleteId}`)
+                .delete();
+            setFirebaseUpdate(true);
+        } catch (err) {
+            console.log(err);
+        }
     };
+
+    // handle add list button
+    const handleAdd = async (e) => {
+        e.preventDefault();
+        let doc = { title: inputValue, timestamp: new Date().getTime() };
+        inputValue
+            ? await p1Firestore.collection("to_do_lists").add(doc)
+            : alert("待辦事項不可為空");
+        setInputValue("");
+        setFirebaseUpdate(true);
+    };
+
+    // get firebase collection's data
+    useEffect(() => {
+        p1Firestore
+            .collection("to_do_lists")
+            .orderBy("timestamp")
+            .get()
+            .then((snapShot) => {
+                console.log(snapShot);
+                if (!snapShot.empty) {
+                    let resutl = [];
+                    snapShot.docs.forEach((doc) => {
+                        resutl.push({
+                            id: doc.id,
+                            ...doc.data(),
+                        });
+                    });
+                    setAllList(resutl);
+                } else {
+                    setAllList([]);
+                }
+            });
+        setFirebaseUpdate(false);
+    }, [firebaseUpdate]);
 
     return (
         <div className="add-form">
@@ -30,19 +72,12 @@ export default function AddForm() {
                 <button
                     type="submit"
                     onClick={(e) => {
-                        e.preventDefault();
-                        inputValue
-                            ? setAllList((prevAllLists) => {
-                                  return [
-                                      ...prevAllLists,
-                                      {
-                                          title: inputValue,
-                                          id: uuidv4(),
-                                      },
-                                  ];
-                              })
-                            : alert("待辦事項不可為空");
-                        setInputValue("");
+                        handleAdd(e);
+                    }}
+                    onKeyUp={(e) => {
+                        if (e.key === "Enter") {
+                            handleAdd(e);
+                        }
                     }}
                 >
                     新增紀錄
