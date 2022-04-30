@@ -6938,7 +6938,7 @@ var pr = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__spreadArray)((0,tslib__WEBPACK_
      */
     e.gt = function() {
         var t;
-        return "undefined" != typeof process && "YES" === (null === (t = process.env) || void 0 === t ? void 0 : t.Tt);
+        return "undefined" != typeof process && "YES" === (null === (t = "MISSING_ENV_VAR") || void 0 === t ? void 0 : t.Tt);
     }, 
     /** Helper to get a typed SimpleDbStore from a transaction. */ e.It = function(t, e) {
         return t.store(e);
@@ -60553,4 +60553,4 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createEle
 
 /******/ })()
 ;
-//# sourceMappingURL=main.d3ccd3ce562192089c65.bundle.js.map
+//# sourceMappingURL=main.18106ebebd5d99ede5b4.bundle.js.map
